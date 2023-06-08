@@ -6,20 +6,16 @@ import 'login.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   //await Firebase.initializeApp();
-  await Firebase.initializeApp(
-      options: FirebaseOptions(
-    apiKey: "AIzaSyCtsgS9Syw_FMGojoMxUfjbmfrvDHq5pxc",
-    appId: "1:712874113212:web:4ac3e60efda66f7da278b9",
-    messagingSenderId: "712874113212",
-    projectId: "chatunlimited-cc5ea",
-  ));
-  runApp(MyApp());
+  await Firebase.initializeApp();
+
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _MyAppState createState() => _MyAppState();
 }
 
