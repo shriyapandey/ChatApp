@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "712874113212",
+    "project_id": "chatunlimited-cc5ea",
+    "storage_bucket": "chatunlimited-cc5ea.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:712874113212:android:fb647324296e0a1ea278b9",
+        "android_client_info": {
+          "package_name": "com.example.cwc_laathi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "712874113212-v0i0d3d95836vkffhs783ftqchpmrfud.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhQcsubqg8mE2byZteqj1hOnk6hx-NGXc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "712874113212-v0i0d3d95836vkffhs783ftqchpmrfud.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
