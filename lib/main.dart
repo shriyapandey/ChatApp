@@ -28,7 +28,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         primaryColor: Colors.orange[900],
       ),
-      home: Home(),
+      home: const Home(),
     );
   }
 }

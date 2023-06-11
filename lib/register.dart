@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 
 import 'login.dart';
 
+// ignore: use_key_in_widget_constructors
 class RegisterScreen extends StatefulWidget {
   @override
+  // ignore: library_private_types_in_public_api
   _RegisterScreenState createState() => _RegisterScreenState();
 }
 
@@ -13,12 +15,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final auth = FirebaseAuth.instance;
   CollectionReference ref = FirebaseFirestore.instance.collection('user');
 
-  final TextEditingController passwordController = new TextEditingController();
-  final TextEditingController confirmpassController =
-      new TextEditingController();
-  final TextEditingController emailController = new TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmpassController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
 
-  var error = null;
+  // ignore: prefer_typing_uninitialized_variables
+  var error;
 
   register(String email, String password) async {
     if (error == null) {
@@ -26,11 +28,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
           .createUserWithEmailAndPassword(email: email, password: password)
           .whenComplete(() {
         Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => Home()));
+            context, MaterialPageRoute(builder: (context) => const Home()));
       });
-    } else {
-      print(error);
-    }
+    } else {}
   }
 
   @override
@@ -39,41 +39,41 @@ class _RegisterScreenState extends State<RegisterScreen> {
       backgroundColor: Colors.blue[900],
       body: SingleChildScrollView(
         child: Container(
-          margin: EdgeInsets.all(12),
+          margin: const EdgeInsets.all(12),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               TextFormField(
                 controller: emailController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   filled: true,
                   fillColor: Colors.white,
                   hintText: 'Email',
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               TextFormField(
                 obscureText: true,
                 controller: passwordController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   filled: true,
                   fillColor: Colors.white,
                   hintText: 'Password',
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               TextFormField(
                 controller: confirmpassController,
                 obscureText: true,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   filled: true,
                   fillColor: Colors.white,
                   hintText: 'Confirm Password',
@@ -90,7 +90,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   }
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Row(
@@ -100,29 +100,31 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   MaterialButton(
                     height: 40,
                     onPressed: () {
-                      Navigator.pushReplacement(context,
-                          MaterialPageRoute(builder: (context) => Home()));
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Home()));
                     },
-                    child: Text(
+                    color: Colors.white,
+                    child: const Text(
                       "Login",
                       style: TextStyle(
                         fontSize: 20,
                       ),
                     ),
-                    color: Colors.white,
                   ),
                   MaterialButton(
                     height: 40,
                     onPressed: () {
                       register(emailController.text, passwordController.text);
                     },
-                    child: Text(
+                    color: Colors.white,
+                    child: const Text(
                       "Register",
                       style: TextStyle(
                         fontSize: 20,
                       ),
                     ),
-                    color: Colors.white,
                   ),
                 ],
               ),

@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 import 'chatpage.dart';
 
 class Home extends StatefulWidget {
+  const Home({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _HomeState createState() => _HomeState();
 }
 
@@ -12,10 +15,9 @@ class _HomeState extends State<Home> {
   bool _isObscure3 = true;
   bool visible = false;
   final _formkey = GlobalKey<FormState>();
-  final TextEditingController emailController = new TextEditingController();
-  final TextEditingController passwordController = new TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
-  final _auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,17 +30,17 @@ class _HomeState extends State<Home> {
               height: MediaQuery.of(context).size.height * 0.70,
               child: Center(
                 child: Container(
-                  margin: EdgeInsets.all(12),
+                  margin: const EdgeInsets.all(12),
                   child: Form(
                     key: _formkey,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        SizedBox(
+                        const SizedBox(
                           height: 30,
                         ),
-                        Text(
+                        const Text(
                           "Login",
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
@@ -46,7 +48,7 @@ class _HomeState extends State<Home> {
                             fontSize: 40,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 30,
                         ),
                         TextFormField(
@@ -59,16 +61,16 @@ class _HomeState extends State<Home> {
                             contentPadding: const EdgeInsets.only(
                                 left: 14.0, bottom: 8.0, top: 8.0),
                             focusedBorder: OutlineInputBorder(
-                              borderSide: new BorderSide(color: Colors.white),
-                              borderRadius: new BorderRadius.circular(10),
+                              borderSide: const BorderSide(color: Colors.white),
+                              borderRadius: BorderRadius.circular(10),
                             ),
                             enabledBorder: UnderlineInputBorder(
-                              borderSide: new BorderSide(color: Colors.white),
-                              borderRadius: new BorderRadius.circular(10),
+                              borderSide: const BorderSide(color: Colors.white),
+                              borderRadius: BorderRadius.circular(10),
                             ),
                           ),
                           validator: (value) {
-                            if (value!.length == 0) {
+                            if (value!.isEmpty) {
                               return "Email cannot be Empty";
                             }
                             if (!RegExp(
@@ -84,7 +86,7 @@ class _HomeState extends State<Home> {
                           },
                           keyboardType: TextInputType.emailAddress,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 30,
                         ),
                         TextFormField(
@@ -107,16 +109,16 @@ class _HomeState extends State<Home> {
                             contentPadding: const EdgeInsets.only(
                                 left: 14.0, bottom: 8.0, top: 15.0),
                             focusedBorder: OutlineInputBorder(
-                              borderSide: new BorderSide(color: Colors.white),
-                              borderRadius: new BorderRadius.circular(10),
+                              borderSide: const BorderSide(color: Colors.white),
+                              borderRadius: BorderRadius.circular(10),
                             ),
                             enabledBorder: UnderlineInputBorder(
-                              borderSide: new BorderSide(color: Colors.white),
-                              borderRadius: new BorderRadius.circular(10),
+                              borderSide: const BorderSide(color: Colors.white),
+                              borderRadius: BorderRadius.circular(10),
                             ),
                           ),
                           validator: (value) {
-                            RegExp regex = new RegExp(r'^.{6,}$');
+                            RegExp regex = RegExp(r'^.{6,}$');
                             if (value!.isEmpty) {
                               return "Password cannot be empty";
                             }
@@ -135,10 +137,10 @@ class _HomeState extends State<Home> {
                           color: Colors.indigo,
                           textColor: Colors.white,
                           onPressed: () {},
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                          child: const Padding(
+                            padding: EdgeInsets.all(8.0),
                             child: Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: EdgeInsets.all(8.0),
                               child: Text(
                                 "Forgot Password",
                                 style: TextStyle(
@@ -150,11 +152,11 @@ class _HomeState extends State<Home> {
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 30,
                         ),
                         MaterialButton(
-                          shape: RoundedRectangleBorder(
+                          shape: const RoundedRectangleBorder(
                               borderRadius:
                                   BorderRadius.all(Radius.circular(20.0))),
                           elevation: 5.0,
@@ -166,8 +168,9 @@ class _HomeState extends State<Home> {
                             signIn(
                                 emailController.text, passwordController.text);
                           },
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                          color: Colors.white,
+                          child: const Padding(
+                            padding: EdgeInsets.all(8.0),
                             child: Text(
                               "Login",
                               style: TextStyle(
@@ -175,9 +178,8 @@ class _HomeState extends State<Home> {
                               ),
                             ),
                           ),
-                          color: Colors.white,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Visibility(
@@ -185,10 +187,9 @@ class _HomeState extends State<Home> {
                             maintainAnimation: true,
                             maintainState: true,
                             visible: visible,
-                            child: Container(
-                                child: CircularProgressIndicator(
+                            child: const CircularProgressIndicator(
                               color: Colors.white,
-                            ))),
+                            )),
                       ],
                     ),
                   ),
@@ -203,11 +204,11 @@ class _HomeState extends State<Home> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     MaterialButton(
-                      shape: RoundedRectangleBorder(
+                      shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(
                           Radius.circular(20.0),
                         ),
@@ -223,7 +224,7 @@ class _HomeState extends State<Home> {
                         );
                       },
                       color: Colors.blue[900],
-                      child: Text(
+                      child: const Text(
                         "Register Now",
                         style: TextStyle(
                           color: Colors.white,
@@ -231,7 +232,7 @@ class _HomeState extends State<Home> {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 15,
                     ),
                   ],
@@ -247,11 +248,7 @@ class _HomeState extends State<Home> {
   void signIn(String email, String password) async {
     if (_formkey.currentState!.validate()) {
       try {
-        UserCredential userCredential =
-            await FirebaseAuth.instance.signInWithEmailAndPassword(
-          email: email,
-          password: password,
-        );
+        // ignore: use_build_context_synchronously
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
@@ -262,10 +259,7 @@ class _HomeState extends State<Home> {
         );
       } on FirebaseAuthException catch (e) {
         if (e.code == 'user-not-found') {
-          print('No user found for that email.');
-        } else if (e.code == 'wrong-password') {
-          print('Wrong password provided for that user.');
-        }
+        } else if (e.code == 'wrong-password') {}
       }
     }
   }
