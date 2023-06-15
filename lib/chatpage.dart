@@ -111,6 +111,7 @@ class _chatpageState extends State<chatpage> {
                         SizedBox(
                           height: 45.0,
                           child: FloatingActionButton(
+                            heroTag: UniqueKey(),
                             onPressed: () => {
                               showEmoji = true,
                             },
@@ -130,6 +131,7 @@ class _chatpageState extends State<chatpage> {
                         SizedBox(
                           height: 45.0,
                           child: FloatingActionButton(
+                            heroTag: UniqueKey(),
                             onPressed: () => {},
                             elevation: 25,
                             backgroundColor: Colors.lightBlue[500],
@@ -146,6 +148,7 @@ class _chatpageState extends State<chatpage> {
                         SizedBox(
                           height: 45.0,
                           child: FloatingActionButton(
+                            heroTag: UniqueKey(),
                             onPressed: () => {},
                             elevation: 25,
                             backgroundColor: Colors.lightBlue[500],
@@ -201,6 +204,7 @@ class _chatpageState extends State<chatpage> {
                       child: SizedBox(
                         height: 45.0,
                         child: FloatingActionButton(
+                          heroTag: UniqueKey(),
                           onPressed: () => {
                             if (message.text.isNotEmpty)
                               {
